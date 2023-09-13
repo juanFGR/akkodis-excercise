@@ -34,6 +34,11 @@ jobs:
           update-comment: true
           debug-mode: false
 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: report coverage
+          path: ${{ github.workspace }}/target/site/jacoco
+            
       - name: Get the Coverage info
         run: |
           echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
