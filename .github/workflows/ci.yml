@@ -46,3 +46,15 @@ jobs:
         with:
           script: |
             core.setFailed('Overall coverage is less than 10%!')
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+          - name: Build the hello-docker Docker image
+        run: |
+          docker build . --tag ghcr.io/juanFGR/akkodis-exercise:latest
+          docker run ghcr.io/juanFGR/akkodis-exercise:latest
+          docker push ghcr.io/juanFGR/akkodis-exercise:latest
