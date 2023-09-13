@@ -23,7 +23,7 @@ public class PriceService {
 
     public Price getPriceById(Long id){
         Optional<Price> optionalBrand = priceRepository.findById(id);
-        return optionalBrand.isPresent()? optionalBrand.get() : null;
+        return optionalBrand.orElse(null);
     }
 
     public List<Price> getAllPrice(){

@@ -20,7 +20,7 @@ public class BrandService {
 
     public Brand getBrandById(Long id){
         Optional<Brand> optionalBrand = brandRepository.findById(id);
-        return optionalBrand.get();
+        return optionalBrand.orElse(null);
     }
 
     public List<Brand> getAllBrand(){

@@ -4,15 +4,10 @@ import com.akkodis.juanfgr.shop.model.Price;
 import com.akkodis.juanfgr.shop.service.PriceService;
 import com.akkodis.juanfgr.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
 
 @RestController
 @RequestMapping("api/price")
