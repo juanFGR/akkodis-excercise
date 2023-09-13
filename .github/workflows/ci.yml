@@ -56,6 +56,6 @@ jobs:
 
       - name: Build the hello-docker Docker image
         run: |
-          docker build . --tag ghcr.io/juanFGR/akkodis-exercise:latest
-          docker run ghcr.io/juanFGR/akkodis-exercise:latest
-          docker push ghcr.io/juanFGR/akkodis-exercise:latest
+          docker build . --tag ghcr.io/juanfgr/akkodis-exercise:latest
+          docker run ghcr.io/juanfgr/akkodis-exercise:latest
+          docker push ghcr.io/juanfgr/akkodis-exercise:latest
