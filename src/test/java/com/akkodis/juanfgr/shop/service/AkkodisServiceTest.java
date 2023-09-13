@@ -24,10 +24,6 @@ class AkkodisServiceTest {
     @Autowired
     ProductService productService;
 
-
-    @Mock
-    Optional<Price> price;
-
     @BeforeEach
     void setMockOutput() {
 

@@ -7,7 +7,6 @@ import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,10 +23,6 @@ class PriceServiceTest {
     PriceService priceService;
     @Autowired
     ProductService productService;
-
-
-    @Mock
-    Optional<Price> price;
 
     @BeforeEach
     void setMockOutput() {
