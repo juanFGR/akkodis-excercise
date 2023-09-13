@@ -1,0 +1,48 @@
+name: project CI flow
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: maven
+      - name: Build with Maven
+        run: |
+          mvn clean test install
+          cd ${{ github.workspace }}/target/site/jacoco
+          ls -la
+
+      - name: Jacoco Report
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.6.1
+        with:
+          paths: ${{ github.workspace }}/target/site/jacoco/jacoco.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 10
+          min-coverage-changed-files: 10
+          title: 'Coverage Report'
+          update-comment: true
+          debug-mode: false
+
+      - name: Get the Coverage info
+        run: |
+          echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
+          echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
+
+      - name: Fail if overall coverage is less than 10%
+        if: ${{ steps.jacoco.outputs.coverage-overall < 10.0 }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            core.setFailed('Overall coverage is less than 10%!')

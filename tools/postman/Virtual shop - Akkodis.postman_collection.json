@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "66151165-71df-4f42-9e80-eebd2ebcb67d",
+		"name": "Virtual shop - Akkodis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3485449"
+	},
+	"item": [
+		{
+			"name": "Create Brand",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Simple SHowp\",\r\n    \"prices\" : [\r\n        {\"name\":\"dd\"}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/brand",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"brand"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
