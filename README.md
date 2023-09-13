@@ -1,5 +1,5 @@
-### Akkodis excercise
-This repo contains a basic example to resolve the Akkodis excercise.
+### Akkodis exercise
+This repo contains a basic example to resolve the Akkodis exercise.
 
 | STAR_DATE | END_DATE |
 | ------ | ------ |

@@ -20,7 +20,7 @@ public class ProductService {
 
     public Product getProductById(Long id){
         Optional<Product> optionalBrand = productRepository.findById(id);
-        return optionalBrand.isPresent()? optionalBrand.get() : null;
+        return optionalBrand.orElse(null);
     }
 
     public List<Product> getAllProduct(){
