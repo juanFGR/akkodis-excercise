@@ -2,7 +2,6 @@ package com.akkodis.juanfgr.shop.controller;
 
 import com.akkodis.juanfgr.shop.ShopApplication;
 import com.akkodis.juanfgr.shop.model.Price;
-import com.akkodis.juanfgr.shop.tools.HandleResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
