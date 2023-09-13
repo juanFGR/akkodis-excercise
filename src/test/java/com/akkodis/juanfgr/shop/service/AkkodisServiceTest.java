@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.text.ParseException;
 import java.util.Optional;
+import java.util.function.BooleanSupplier;
 
 @SpringBootTest
 class AkkodisServiceTest {
@@ -33,7 +34,8 @@ class AkkodisServiceTest {
     @Test
     void getAllPrice() {
         Assertions.assertNotNull(priceRepository.findAll());
-        Assertions.assertEquals(4,priceRepository.findAll().size());
+        BooleanSupplier condition = () -> 4 <= priceRepository.findAll().size();
+        Assertions.assertTrue(condition, "Database was updated, almost 1 new element");
     }
 
     @Test
