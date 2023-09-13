@@ -2,17 +2,16 @@ package com.akkodis.juanfgr.shop.service;
 
 
 import com.akkodis.juanfgr.shop.model.Price;
+import com.akkodis.juanfgr.shop.model.Product;
 import com.akkodis.juanfgr.shop.repo.PriceRepository;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.text.ParseException;
-import java.util.Optional;
+import java.util.Date;
 
 @SpringBootTest
 class PriceServiceTest {
@@ -24,17 +23,25 @@ class PriceServiceTest {
     @Autowired
     ProductService productService;
 
-    @BeforeEach
-    void setMockOutput() {
-
-    }
-
-
     @Test
-    void getAllPrice() {
+    void createPrice() {
+        Product product = productService.getProductById(35455L);
+        Price price = new Price();
+        price.setCost(36L);
+        price.setCurrent("EUR");
+        price.setProduct(product);
+        price.setStartDate(new Date());
+        price.setEndDate(new Date());
+
+        priceService.createPrice(price);
+
         Assertions.assertNotNull(priceRepository.findAll());
-        Assertions.assertEquals(4,priceRepository.findAll().size());
+        Assertions.assertEquals(5, priceService.getAllPrice().size());
+
+
     }
+
+
 
     @Test
     void testCase_1() throws ParseException {
