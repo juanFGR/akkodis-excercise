@@ -23,54 +23,100 @@ This repo contains a basic example to resolve the Akkodis exercise.
   docker build -t demo-spring-app .
   docker run -p 8080:8080 -d demo-spring-app:latest
 ```
-You can use compose command:   [View File](tools/compose/docker-compose.yml)
-```sh
-  docker-compose up -d
-```
+
 
 
 ### How to Install
 - Using a simple command:
 ```sh
-java -jar shop.jar (OR shop-0.0.1-SNAPSHOT.jar)
+mvn install #to generate the jar quickly
+java -jar target/shop-0.0.1-SNAPSHOT.jar #(OR shop.0.0.1.jar)
+```
+```sh
+#OR using the java.jar uploaded to dist folder for this example
+java -jar dist/shop-0.0.1.jar
+
 ```
 - Using docker:
 ```sh
   docker build -t demo-spring-app .
   docker run -p 8080:8080 -d demo-spring-app:latest
 ```
+- using compose command:   [View File](tools/compose/docker-compose.yml)
 
+```sh
+  docker-compose up -d
+```
+
+### How to check
 - To execute the test
 ```sh
 mvn clean test
 ```
+- To verify the coverage
+
 
 ### How to use
 Api information here: http://localhost:8080/swagger-ui/index.html (Swagger)
-- Examples:
+
+Api Postman Collection [View File](tools/postman/)
+
+- Example http://localhost:8080/api/price/product/35455?date=2020-06-14-10.00.00
 ```json
-// --> http://localhost:8080/api/product
+{
+  "id": 1,
+  "startDate": "2020-06-14T00:00:00.000+00:00",
+  "endDate": "2020-12-31T23:59:59.000+00:00",
+  "product": {
+    "id": 35455,
+    "name": "Akkodis Product premium A",
+    "brand": {
+      "id": 1,
+      "name": "Akkodis Brand premium"
+    }
+  },
+  "priority": 0,
+  "cost": 36,
+  "current": "EUR"
+}
+```
+
+- Example http://localhost:8080/api/price/1
+```json
+{
+  "id": 1,
+  "startDate": "2020-06-14T00:00:00.000+00:00",
+  "endDate": "2020-12-31T23:59:59.000+00:00",
+  "product": {
+    "id": 35455,
+    "name": "Akkodis Product premium A",
+    "brand": {
+      "id": 1,
+      "name": "Akkodis Brand premium"
+    }
+  },
+  "priority": 0,
+  "cost": 36,
+  "current": "EUR"
+}
+```
+- Example http://localhost:8080/api/brand
+```json
 [
   {
     "id": 1,
-    "startDate": "2020-06-14T00:00:00.000+00:00",
-    "endDate": "2020-12-31T23:59:59.000+00:00",
-    "product": {
-      "id": 35455,
-      "name": "Akkodis Product premium A",
-      "brand": {
-        "id": 1,
-        "name": "Akkodis Brand premium"
-      }
-    },
-    "priority": 0,
-    "cost": 36,
-    "current": "EUR"
-  }, 
-  .....
+    "name": "Akkodis Brand premium"
+  },
+  {
+    "id": 2,
+    "name": "Akkodis Brand normal"
+  },
+  {
+    "id": 3,
+    "name": "Akkodis Brand low-cost"
+  }
 ]
 ```
-
 ### Reference Documentation
 For further reference, please consider the following sections:
 
