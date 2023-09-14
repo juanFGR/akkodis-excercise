@@ -6,24 +6,20 @@ This repo contains a basic example to resolve the Akkodis exercise.
 | 12/09/2023|14/09/2023|
 ---
 
-### Tech
+### Quick intro
 - Spring Boot https://start.spring.io/
 - Jdk 17 
 - Spring Api Docs - swagger https://swagger.io/solutions/api-documentation/
--Unit test && coverage:
-  - Jacoco 
-  - JUnit 5 
-- Git Actions
-  [CI implemented](.github/workflows/ci.yml)
+- Unit test && coverage:
+  - Jacoco: 
+    - Jacoco Report for each PR in the comments https://github.com/juanFGR/akkodis-exercise/pull/4
+  - JUnit 5 (60% min coverage)
+- PR Template to create correct PR description: https://github.com/juanFGR/akkodis-exercise/pull/7 
+- Git Actions [CI implemented](.github/workflows/ci.yml)
+  - History https://github.com/juanFGR/akkodis-exercise/actions
 - Sonar Lint https://www.sonarsource.com/products/sonarlint/
-
-- Docker
-  [Dockerfile](Dockerfile)
-```sh
-  docker build -t demo-spring-app .
-  docker run -p 8080:8080 -d demo-spring-app:latest
-```
-
+- Docker [Dockerfile](Dockerfile)
+  - Docker package deployed in Github https://github.com/juanFGR/akkodis-exercise/pkgs/container/akkodis-exercise
 
 
 ### How to Install
@@ -55,7 +51,6 @@ mvn clean test
 ```
 - To verify the coverage
 
-
 ### How to use
 Api information here: http://localhost:8080/swagger-ui/index.html (Swagger)
 
@@ -80,6 +75,8 @@ Api Postman Collection [View File](tools/postman/)
   "current": "EUR"
 }
 ```
+
+
 
 - Example http://localhost:8080/api/price/1
 ```json
@@ -117,6 +114,7 @@ Api Postman Collection [View File](tools/postman/)
   }
 ]
 ```
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
