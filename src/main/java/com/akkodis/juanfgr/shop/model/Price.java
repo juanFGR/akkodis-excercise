@@ -33,7 +33,7 @@ public class Price {
 
 
     private Long priority;
-    private Long cost;
+    private double cost;
     private String current;
 
 
